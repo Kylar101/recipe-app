@@ -4,6 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "migrate": ""
+    "serve": "yarn nodemon src/index.js"
   }
 }

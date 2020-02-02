@@ -12,7 +12,7 @@ async function seed(knex) {
   })
   await knex('user').insert({
     id: uuid(),
-    title: 'Jane Blogs',
+    name: 'Jane Blogs',
     email: 'jane@gmail.com'
   })
 }

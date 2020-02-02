@@ -1,9 +1,10 @@
 const path = require('path')
+
 module.exports = {
   client: 'pg',
   connection: process.env.DATABASE_URL || {
     host: '127.0.0.1',
-    port: '52563',
+    port: '5432',
     user: 'postgres',
     password: 'postgres',
     database: 'recipe-api',
