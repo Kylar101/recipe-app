@@ -1,40 +1,25 @@
 {
-  "name": "recipe-app",
-  "version": "1.0.0",
-  "description": "GraphQL api for recipe app",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "develop": "nodemon server.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "workspaces": [
-    "server"
-  ],
-  "dependencies": {
-    "@types/graphql": "^14.5.0",
-    "@types/koa": "^2.11.0",
-    "@types/pg": "^7.14.1",
-    "apollo-server-express": "^2.5.0-rc.0",
-    "apollo-server-koa": "^2.9.16",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "graphql": "^14.6.0",
-    "graphql-import": "^1.0.0-beta.2",
-    "graphql-relay": "^0.6.0",
-    "graphql-sequelize": "^9.4.0",
-    "graphql-tools": "^4.0.6",
-    "knex": "^0.20.8",
-    "koa": "^2.11.0",
-    "pg": "^7.17.1",
-    "pg-promise": "^10.3.5",
-    "sequelize": "^5.21.3",
-    "ts-node": "^8.6.2",
-    "uuid": "^3.4.0"
-  },
+  "name": "recipe-api",
+  "version": "0.0.1",
   "devDependencies": {
-    "dotenv": "^8.2.0",
-    "nodemon": "^2.0.2"
+    "@types/express": "^4.17.2",
+    "@types/node": "^12.12.8",
+    "nodemon": "^1.19.4",
+    "ts-node": "8.5.2",
+    "typescript": "3.7.2"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.9.9",
+    "express": "^4.17.1",
+    "graphql": "^14.5.8",
+    "pg": "^7.13.0",
+    "reflect-metadata": "^0.1.10",
+    "sqlite3": "^4.1.0",
+    "type-graphql": "^0.17.5",
+    "typeorm": "0.2.20"
+  },
+  "scripts": {
+    "start": "nodemon --exec ts-node src/index.ts",
+    "build": "tsc"
   }
 }
