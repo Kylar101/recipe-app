@@ -1,31 +1,31 @@
 module.exports = [
-  // {
-  //   name: "development",
-  //   type: "sqlite",
-  //   database: "database.sqlite",
-  //   synchronize: true,
-  //   logging: true,
-  //   entities: ["src/entity/**/*.ts"],
-  //   migrations: ["src/migration/**/*.ts"],
-  //   subscribers: ["src/subscriber/**/*.ts"],
-  //   cli: {
-  //     entitiesDir: "src/entity",
-  //     migrationsDir: "src/migration",
-  //     subscribersDir: "src/subscriber"
-  //   }
-  // },
   {
-    name: 'development',
-    type: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    database: 'recipe-api',
+    name: "development",
+    type: "sqlite",
+    database: "database.sqlite",
     synchronize: true,
     logging: true,
-    entities: [
-      'src/entity/**/*.ts'
-    ]
+    entities: ["src/entity/**/*.ts"],
+    migrations: ["src/migration/**/*.ts"],
+    subscribers: ["src/subscriber/**/*.ts"],
+    cli: {
+      entitiesDir: "src/entity",
+      migrationsDir: "src/migration",
+      subscribersDir: "src/subscriber"
+    }
   },
+  // {
+  //   name: 'development',
+  //   type: 'postgres',
+  //   host: 'localhost',
+  //   port: 5432,
+  //   database: 'recipe-api',
+  //   synchronize: true,
+  //   logging: true,
+  //   entities: [
+  //     'src/entity/**/*.ts'
+  //   ]
+  // },
   {
     name: "production",
     type: "postgres",
