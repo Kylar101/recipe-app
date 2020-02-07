@@ -57,7 +57,7 @@ export class UserResolver {
 
   @Query(() => User)
   user(@Arg('id', () => Int) id: number) {
-    return User.findOne<User>(id);
+    return User.findOne<User>(id)
   }
 
 }
