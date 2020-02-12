@@ -52,7 +52,7 @@ export class UserResolver {
 
   @Query(() => [User])
   users() {
-    return User.find();
+    return User.find()
   }
 
   @Query(() => User)
