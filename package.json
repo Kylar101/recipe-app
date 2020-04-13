@@ -20,6 +20,7 @@
   },
   "scripts": {
     "start": "nodemon --exec ts-node src/index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "echo 'No tests created'"
   }
 }
