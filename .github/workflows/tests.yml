@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Run a multi-line script
+    - name: Run Unit tests
       run: |
         npm i
         npm run test
@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - npm: |
+      - name: Run Linting
+      - run: |
           npm i
           npm run lint
