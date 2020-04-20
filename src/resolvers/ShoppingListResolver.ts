@@ -23,34 +23,34 @@ class UpdateListInput {
 export class ShoppingListResolver {
   @Mutation(() => ShoppingList)
   async createShoppingList(
-    @Arg('options', () => ListInput) options: ListInput
+  @Arg('options', () => ListInput) options: ListInput
   ) {
-    const list = await ShoppingList.create(options).save()
-    return list
+    const list = await ShoppingList.create(options).save();
+    return list;
   }
 
   @Mutation(() => Boolean)
   async updateShoppingList(
-    @Arg('id', () => Int) id: number,
+  @Arg('id', () => Int) id: number,
     @Arg('options', () => UpdateListInput) options: UpdateListInput
   ) {
-    await ShoppingList.update({id}, options)
-    return true
+    await ShoppingList.update({id}, options);
+    return true;
   }
 
   @Mutation(() => Boolean)
   async deleteShoppingList(@Arg('id', () => Int) id: number) {
-    await ShoppingList.delete({id})
-    return true
+    await ShoppingList.delete({id});
+    return true;
   }
 
   @Query(() => [ShoppingList])
   shoppingLists() {
-    return ShoppingList.find()
+    return ShoppingList.find();
   }
 
   @Query(() => ShoppingList)
   shoppingList(@Arg('id', () => Int) id: number) {
-    return ShoppingList.findOne<ShoppingList>(id)
+    return ShoppingList.findOne<ShoppingList>(id);
   }
 }

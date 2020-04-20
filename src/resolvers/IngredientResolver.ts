@@ -5,32 +5,32 @@ import { Ingredient } from 'src/entity/Ingredients';
 export class IngredientResolver {
   @Mutation(() => Ingredient)
   async createIngredient(@Arg('name') name: string) {
-    const ingredient = await Ingredient.create({name}).save()
+    const ingredient = await Ingredient.create({name}).save();
     return ingredient;
   }
 
   @Mutation(() => Boolean)
   async updateIngredient(
-    @Arg('id', () => Int) id: number,
+  @Arg('id', () => Int) id: number,
     @Arg('name') name: string
   ) {
-    await Ingredient.update({ id }, {name})
-    return true
+    await Ingredient.update({ id }, {name});
+    return true;
   }
 
   @Mutation(() => Boolean)
   async deleteIngredient(@Arg('id', () => Int) id: number) {
-    await Ingredient.delete({id})
+    await Ingredient.delete({id});
     return true;
   }
 
   @Query(() => Ingredient)
   ingredients() {
-    return Ingredient.find()
+    return Ingredient.find();
   }
 
   @Query(() => Ingredient)
   ingredient(@Arg('id', () => Int) id: number) {
-    return Ingredient.findOne<Ingredient>(id)
+    return Ingredient.findOne<Ingredient>(id);
   }
 }

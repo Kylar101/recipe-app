@@ -5,32 +5,32 @@ import { Tag } from 'src/entity/Tag';
 export class TagResolver {
   @Mutation(() => Tag)
   async createTag(@Arg('name') name: string) {
-    const tag = await Tag.create({name}).save()
+    const tag = await Tag.create({name}).save();
     return tag;
   }
 
   @Mutation(() => Boolean)
   async updateTag(
-    @Arg('id', () => Int) id: number,
+  @Arg('id', () => Int) id: number,
     @Arg('name') name: string
   ) {
-    await Tag.update({ id }, {name})
-    return true
+    await Tag.update({ id }, {name});
+    return true;
   }
 
   @Mutation(() => Boolean)
   async deleteTag(@Arg('id', () => Int) id: number) {
-    await Tag.delete({id})
+    await Tag.delete({id});
     return true;
   }
 
   @Query(() => Tag)
   ingredients() {
-    return Tag.find()
+    return Tag.find();
   }
 
   @Query(() => Tag)
   ingredient(@Arg('id', () => Int) id: number) {
-    return Tag.findOne<Tag>(id)
+    return Tag.findOne<Tag>(id);
   }
 }

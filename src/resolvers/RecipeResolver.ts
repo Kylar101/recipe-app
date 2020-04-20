@@ -59,32 +59,32 @@ class UpdateRecipeInput {
 export class RecipeResolver {
   @Mutation(() => Recipe)
   async createRecipe(@Arg('options', () => RecipeInput) options: RecipeInput) {
-    const recipe = await Recipe.create(options).save()
-    return recipe
+    const recipe = await Recipe.create(options).save();
+    return recipe;
   }
 
   @Mutation(() => Boolean)
   async updateRecipe(
-    @Arg('id', () => Int) id: number,
+  @Arg('id', () => Int) id: number,
     @Arg('options', () => UpdateRecipeInput) options: UpdateRecipeInput
   ) {
-    await Recipe.update({ id }, options)
-    return true
+    await Recipe.update({ id }, options);
+    return true;
   }
 
   @Mutation(() => Boolean)
   async deleteRecipe(@Arg('id', () => Int) id: number) {
-    await Recipe.delete({ id })
-    return true
+    await Recipe.delete({ id });
+    return true;
   }
 
   @Query(() => [Recipe])
   recipes() {
-    return Recipe.find()
+    return Recipe.find();
   }
 
   @Query(() => Recipe)
   recipe(@Arg('id', () => Int) id: number) {
-    return Recipe.findOne<Recipe>(id)
+    return Recipe.findOne<Recipe>(id);
   }
 }
