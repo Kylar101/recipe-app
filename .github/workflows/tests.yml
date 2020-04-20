@@ -24,6 +24,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run Linting
-      - run: |
+        run: |
           npm i
           npm run lint
