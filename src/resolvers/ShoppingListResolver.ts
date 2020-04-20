@@ -1,5 +1,5 @@
 import { Resolver, Mutation, InputType, Field, Arg, Int, Query } from 'type-graphql';
-import { ShoppingList } from 'src/entity/ShoppingList';
+import { ShoppingList } from '../entity/ShoppingList';
 
 @InputType()
 class ListInput {

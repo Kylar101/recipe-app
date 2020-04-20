@@ -1,5 +1,5 @@
 import { Resolver, Mutation, Arg, Int, Query } from 'type-graphql';
-import { Tag } from 'src/entity/Tag';
+import { Tag } from '../entity/Tag';
 
 @Resolver()
 export class TagResolver {

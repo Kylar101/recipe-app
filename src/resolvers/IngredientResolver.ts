@@ -1,5 +1,5 @@
 import { Resolver, Mutation, Arg, Int, Query } from 'type-graphql';
-import { Ingredient } from 'src/entity/Ingredients';
+import { Ingredient } from '../entity/Ingredients';
 
 @Resolver()
 export class IngredientResolver {
