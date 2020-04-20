@@ -6,6 +6,7 @@ import { buildSchema } from "type-graphql";
 import { UserResolver } from './resolvers/UserResolver';
 import { RecipeResolver } from './resolvers/RecipeResolver';
 import { IngredientResolver } from './resolvers/IngredientResolver';
+import { TagResolver } from "./resolvers/TagResolver";
 
 (async () => {
   const app = express();
@@ -20,7 +21,8 @@ import { IngredientResolver } from './resolvers/IngredientResolver';
       resolvers: [
         UserResolver,
         RecipeResolver,
-        IngredientResolver
+        IngredientResolver,
+        TagResolver
       ],
       validate: true
     }),
