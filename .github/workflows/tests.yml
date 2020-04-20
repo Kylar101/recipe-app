@@ -1,23 +1,29 @@
-name: Unit Tests
+name: Lint and Test
 
 on:
   push:
     branches:
-      - master
-      - develop
-      - release/*
       - feature/*
+      - develop
   pull_request:
     branches:
-      - master
-      - release/*
+      - feature/*
+      - develop
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Run a multi-line script
+    - name: Run Unit tests
       run: |
         npm i
         npm run test
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Linting
+        run: |
+          npm i
+          npm run lint
