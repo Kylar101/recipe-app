@@ -21,6 +21,7 @@ export class User extends BaseEntity {
   @Column()
   password: string
 
+  @Field(() => Recipe)
   @OneToMany(_type => Recipe, recipe => recipe.user)
   recipes: Recipe[];
 }

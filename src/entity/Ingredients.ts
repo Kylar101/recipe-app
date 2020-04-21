@@ -9,6 +9,10 @@ export class Ingredient extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
 
+  @Field(() => Int)
+  @Column()
+  recipeId: number;
+
   @Field()
   @Column()
   name: string
