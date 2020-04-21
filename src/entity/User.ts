@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany } from 'typeorm';
 import { Field, Int, ObjectType } from 'type-graphql';
+import { Recipe } from './Recipe';
 
 @ObjectType()
 @Entity()
@@ -19,4 +20,7 @@ export class User extends BaseEntity {
   @Field()
   @Column()
   password: string
+
+  @OneToMany(_type => Recipe, recipe => recipe.user)
+  recipes: Recipe[];
 }

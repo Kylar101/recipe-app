@@ -1,5 +1,7 @@
 import { ObjectType, Int, Field } from 'type-graphql';
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, OneToMany } from 'typeorm';
+import { User } from './User';
+import { Ingredient } from './Ingredients';
 
 @ObjectType()
 @Entity()
@@ -8,9 +10,8 @@ export class Recipe extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Field(() => Int)
-  @Column()
-  userId: number
+  @ManyToOne(_type => User, user => user.recipes)
+  user: User;
 
   @Field()
   @Column()
@@ -39,4 +40,7 @@ export class Recipe extends BaseEntity {
   @Field()
   @Column()
   lastUpdated: Date
+
+  @OneToMany(_type => Ingredient, ingredient => ingredient.id)
+  ingredients: Ingredient[]
 }
