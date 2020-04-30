@@ -10,12 +10,9 @@ export class Recipe extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
 
+  @Field(() => User)
   @ManyToOne(_type => User, user => user.recipes)
   user: User;
-
-  @Field(() => Int)
-  @Column()
-  userId: number
 
   @Field()
   @Column()
@@ -45,6 +42,7 @@ export class Recipe extends BaseEntity {
   @Column()
   lastUpdated: Date
 
+  @Field(() => Ingredient)
   @OneToMany(_type => Ingredient, ingredient => ingredient.recipeId)
   ingredients: Ingredient[]
 }

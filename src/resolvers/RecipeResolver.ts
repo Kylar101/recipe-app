@@ -80,7 +80,7 @@ export class RecipeResolver {
 
   @Query(() => [Recipe])
   recipes() {
-    return Recipe.find();
+    return Recipe.find({ relations: ['user'] });
   }
 
   @Query(() => Recipe)

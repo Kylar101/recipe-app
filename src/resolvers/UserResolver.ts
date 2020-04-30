@@ -52,12 +52,12 @@ export class UserResolver {
 
   @Query(() => [User])
   users() {
-    return User.find();
+    return User.find({ relations: ['recipes'] });
   }
 
   @Query(() => User)
   user(@Arg('id', () => Int) id: number) {
-    return User.findOne<User>(id);
+    return User.findOne<User>(id, { relations: ['recipes'] });
   }
 
 }

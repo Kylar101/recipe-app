@@ -12,7 +12,7 @@ import { TagResolver } from "./resolvers/TagResolver";
   const app = express();
 
   const options = await getConnectionOptions(
-    process.env.NODE_ENV || "local"
+    process.env.NODE_ENV || "default"
   );
   await createConnection({ ...options, name: "default" });
 
