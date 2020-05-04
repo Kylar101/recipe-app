@@ -2,6 +2,7 @@ import { ObjectType, Int, Field } from 'type-graphql';
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, OneToMany } from 'typeorm';
 import { User } from './User';
 import { Ingredient } from './Ingredients';
+import { Tag } from './Tag';
 
 @ObjectType()
 @Entity()
@@ -49,4 +50,8 @@ export class Recipe extends BaseEntity {
   @Field(() => Ingredient)
   @OneToMany(_type => Ingredient, ingredient => ingredient.recipe)
   ingredients: Ingredient[]
+
+  @Field(() => Tag)
+  @OneToMany(_type => Tag, tag => tag.recipe)
+  tags: Tag[];
 }

@@ -27,6 +27,7 @@
     "build": "tsc",
     "test": "echo 'No tests created'",
     "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
     "typeorm": "ts-node ./node_modules/.bin/typeorm"
   }
 }
