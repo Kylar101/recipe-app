@@ -21,6 +21,7 @@ export class Ingredient extends BaseEntity {
   @Column()
   amount: string
 
-  @ManyToOne(_type => Recipe, recipe => recipe.id)
+  @Field(() => Recipe)
+  @ManyToOne(_type => Recipe, recipe => recipe.ingredients)
   recipe: Recipe
 }

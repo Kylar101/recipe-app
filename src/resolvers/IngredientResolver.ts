@@ -1,20 +1,44 @@
-import { Resolver, Mutation, Arg, Int, Query } from 'type-graphql';
+import { Resolver, Mutation, Arg, Int, Query, InputType, Field } from 'type-graphql';
 import { Ingredient } from '../entity/Ingredients';
+
+@InputType()
+class IngredientInput {
+  @Field(() => Int)
+  recipeId: number
+
+  @Field()
+  name: string
+
+  @Field()
+  amount: string
+}
+
+@InputType()
+class UpdateIngredientInput {
+  @Field(() => Int, { nullable: true })
+  recipeId?: number
+
+  @Field(() => String, { nullable: false })
+  name?: string
+
+  @Field(() => String, { nullable: false })
+  amount?: string
+}
 
 @Resolver()
 export class IngredientResolver {
   @Mutation(() => Ingredient)
-  async createIngredient(@Arg('name') name: string) {
-    const ingredient = await Ingredient.create({name}).save();
+  async createIngredient(@Arg('options', () => IngredientInput) options: IngredientInput) {
+    const ingredient = await Ingredient.create(options).save();
     return ingredient;
   }
 
   @Mutation(() => Boolean)
   async updateIngredient(
   @Arg('id', () => Int) id: number,
-    @Arg('name') name: string
+    @Arg('options', () => UpdateIngredientInput) options: UpdateIngredientInput
   ) {
-    await Ingredient.update({ id }, {name});
+    await Ingredient.update({ id }, options);
     return true;
   }
 

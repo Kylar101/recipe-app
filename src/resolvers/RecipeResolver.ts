@@ -80,11 +80,11 @@ export class RecipeResolver {
 
   @Query(() => [Recipe])
   recipes() {
-    return Recipe.find({ relations: ['user'] });
+    return Recipe.find({ relations: ['user', 'ingredients'] });
   }
 
   @Query(() => Recipe)
   recipe(@Arg('id', () => Int) id: number) {
-    return Recipe.findOne<Recipe>(id);
+    return Recipe.findOne<Recipe>(id, { relations: ['user', 'ingredients'] });
   }
 }

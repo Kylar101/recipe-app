@@ -14,6 +14,10 @@ export class Recipe extends BaseEntity {
   @ManyToOne(_type => User, user => user.recipes)
   user: User;
 
+  @Field(() => Int)
+  @Column()
+  userId: number
+
   @Field()
   @Column()
   name: string
@@ -43,6 +47,6 @@ export class Recipe extends BaseEntity {
   lastUpdated: Date
 
   @Field(() => Ingredient)
-  @OneToMany(_type => Ingredient, ingredient => ingredient.recipeId)
+  @OneToMany(_type => Ingredient, ingredient => ingredient.recipe)
   ingredients: Ingredient[]
 }
