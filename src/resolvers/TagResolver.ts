@@ -25,12 +25,12 @@ export class TagResolver {
   }
 
   @Query(() => Tag)
-  ingredients() {
+  tags() {
     return Tag.find();
   }
 
   @Query(() => Tag)
-  ingredient(@Arg('id', () => Int) id: number) {
+  tag(@Arg('id', () => Int) id: number) {
     return Tag.findOne<Tag>(id);
   }
 }

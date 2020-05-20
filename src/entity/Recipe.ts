@@ -1,5 +1,5 @@
 import { ObjectType, Int, Field } from 'type-graphql';
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, OneToMany, ManyToMany } from 'typeorm';
 import { User } from './User';
 import { Ingredient } from './Ingredients';
 import { Tag } from './Tag';
@@ -52,6 +52,6 @@ export class Recipe extends BaseEntity {
   ingredients: Ingredient[]
 
   @Field(() => Tag)
-  @OneToMany(_type => Tag, tag => tag.recipe)
+  @ManyToMany(_type => Tag, tag => tag.recipe)
   tags: Tag[];
 }

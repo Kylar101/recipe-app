@@ -1,5 +1,5 @@
 import { ObjectType, Field, Int } from 'type-graphql';
-import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, ManyToMany } from 'typeorm';
 import { Recipe } from './Recipe';
 
 @ObjectType()
@@ -14,6 +14,6 @@ export class Tag extends BaseEntity {
   name: string
 
   @Field(() => Recipe)
-  @ManyToOne(_type => Recipe, recipe => recipe.tags)
+  @ManyToMany(_type => Recipe, recipe => recipe.tags)
   recipe: Recipe
 }
